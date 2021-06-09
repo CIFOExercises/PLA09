@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PLA06</title>
+    <title>Manteniment Professors</title>
     <link href="css/normalize.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
 </head>
@@ -37,9 +37,9 @@
 
                             <label for="type">Tipus Usuari: </label>
                             <select name="type" id="type">
-                  <option value="AD">Administrador</option>
-                  <option value="TC">Formador</option>
-                </select>
+                                <option value="AD">Administrador</option>
+                                <option value="TC">Formador</option>
+                            </select>
 
                             <label for="center">Escola: </label>
                             <select name="center" id="center"></select>
@@ -49,15 +49,15 @@
             </div>
             <div class="section-footer">
                 <div class="footer-buttons">
-                    <input class="alta-formador" id="submit" type="submit" value="Nou Formador" form="manteniment-profesor" />
-                    <input class="modificar-formador" id="submit" type="submit" value="Modificar Formador" form="manteniment-profesor" disabled />
-                    <input class="baixa-formador" id="submit" type="submit" value="Baixa Formador" form="manteniment-profesor" disabled />
+                    <input class="alta-formador" name="alta-formador" id="submit" type="submit" value="Nou Formador" form="manteniment-profesor" />
+                    <input class="modificar-formador" name="modificar-formador" id="submit" type="submit" value="Modificar Formador" form="manteniment-profesor" disabled />
+                    <input class="baixa-formador" name="baixa-formador" id="submit" type="submit" value="Baixa Formador" form="manteniment-profesor" disabled />
                 </div>
                 <a href="/">Enrere</a>
             </div>
         </section>
     </main>
-    <script src="js/mantenimiento-profesor.js"></script>
+    <script type="module" src="js/mantenimiento-profesor.js"></script>
 </body>
 
 </html>
