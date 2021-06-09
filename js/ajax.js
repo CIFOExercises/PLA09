@@ -2,7 +2,6 @@ export async function ajaxRequest(endpoint, method, data = {}, responseType = "t
     let datos = new FormData()
 
     for (let prop in data) {
-        console.log(prop, data)
         datos.append(prop, data[prop])
     }
 
@@ -10,8 +9,8 @@ export async function ajaxRequest(endpoint, method, data = {}, responseType = "t
         method: method
     }
 
-    if (method !== 'post') {
-        headers.body = data
+    if (method != 'GET') {
+        headers.body = datos
     }
 
     return new Promise((resolve, reject) => {
@@ -26,12 +25,10 @@ export async function ajaxRequest(endpoint, method, data = {}, responseType = "t
                         default: throw ('Tipo de respuesta no válido');
                     }
                 } else {
-                    console.log(res)
                     throw ('Algo ha ido mal en la petición')
                 }
             })
             .then(msg => {
-                console.log(msg)
                 resolve(msg)
             })
             .catch(error => {

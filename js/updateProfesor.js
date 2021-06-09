@@ -1,4 +1,5 @@
 import { loadTable as refreshTable } from "./refresh-table.js";
+import { ajaxRequest } from "./ajax.js";
 
 export function updateProfesor() {
 
@@ -7,32 +8,19 @@ export function updateProfesor() {
     if (!isValid) return;
     let profesor = isValid;
 
-    let data = new FormData();
-    data.append("idprofesor", profesor.idprofesor);
-    data.append("nombre", profesor.name);
-    data.append("email", profesor.email);
-    data.append("usuario", profesor.user);
-    data.append("tipo", profesor.type);
+    let data = {
+        idprofesor: profesor.idprofesor,
+        nombre: profesor.name,
+        email: profesor.email,
+        usuario: profesor.user,
+        tipo: profesor.type
+    }
 
-    let headers = {
-        method: "POST",
-        body: data
-    };
-
-    fetch('https://alcyon-it.com/PQTM/pqtm_modificacion_profesores.php', headers)
-        .then((res) => {
-            if (res.ok) {
-                return res.text();
-            } else {
-                throw "Algo ha ido mal en la llamada";
-            }
-        })
-        .then((res) => {
-            if (res.substring(0, 2) !== '00') throw res.substring(2)
-            alert(res.substring(2));
-            refreshTable();
-        })
-        .catch((error) => alert(error));
+    ajaxRequest('https://alcyon-it.com/PQTM/pqtm_modificacion_profesores.php', 'POST', data, 'text').then((res) => {
+        if (res.substring(0, 2) !== '00') throw res.substring(2)
+        alert(res.substring(2));
+        refreshTable();
+    }, (error) => alert(error))
 }
 
 function validarCampos() {

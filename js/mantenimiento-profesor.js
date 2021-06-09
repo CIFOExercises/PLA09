@@ -1,6 +1,4 @@
 import { loadTable as refreshTable } from "./refresh-table.js";
-import { getProfesor } from "./getProfesor.js";
-import { getAllProfesors } from "./getAllProfesors.js";
 import { updateProfesor } from "./updateProfesor.js";
 import { removeProfesor } from "./removeProfesor.js";
 import { addProfesor } from "./addProfesor.js";

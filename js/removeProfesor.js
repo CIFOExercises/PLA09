@@ -10,20 +10,12 @@ export function removeProfesor() {
         idprofesor: idProfesor
     }
 
-    // let res = ajaxRequest(
-    //     'https://alcyon-it.com/PQTM/pqtm_baja_profesores.php',
-    //     'POST',
-    //     data,
-    //     "text")
-
-    // console.log(res)
-
-    // function (res) {
-    //     if (res.substring(0, 2) !== '00') throw res.substring(2)
-    //     alert(res.substring(2));
-    //     refreshTable();
-    //     document.querySelector('#manteniment-profesor').reset();
-    //     document.querySelector(".modificar-formador").toggleAttribute("disabled");
-    //     document.querySelector(".baixa-formador").toggleAttribute("disabled");
-    // }
+    ajaxRequest('https://alcyon-it.com/PQTM/pqtm_baja_profesores.php', 'POST', data, 'text').then((res) => {
+        if (res.substring(0, 2) !== '00') throw res.substring(2)
+        alert(res.substring(2));
+        refreshTable();
+        document.querySelector('#manteniment-profesor').reset();
+        document.querySelector(".modificar-formador").toggleAttribute("disabled");
+        document.querySelector(".baixa-formador").toggleAttribute("disabled");
+    }, (error) => alert(error))
 }

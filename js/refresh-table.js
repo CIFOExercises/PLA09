@@ -4,9 +4,7 @@ import { ajaxRequest } from "./ajax.js";
 export function loadTable() {
     let data = { tipoconsulta: "A" };
 
-    let respuesta = ajaxRequest('https://alcyon-it.com/PQTM/pqtm_consulta_profesores.php', 'post', data, 'json')
-
-    console.log(respuesta)
+    ajaxRequest('https://alcyon-it.com/PQTM/pqtm_consulta_profesores.php', 'POST', data, 'json').then((profesores) => appendTable(profesores), (error) => alert(error))
 
     function appendTable(profesores) {
 
